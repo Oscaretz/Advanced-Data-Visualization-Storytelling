@@ -1,0 +1,40 @@
+/* General App Background and Font */
+body, [class*="stAppViewContainer"] {
+    background-color: #f8f9fb;
+    color: #1f2937;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #111827;
+    font-weight: 600;
+}
+
+/* KPI Cards */
+.metric-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* Tabs */
+.stTabs [role="tablist"] {
+    justify-content: center;
+}
+.stTabs [role="tab"] {
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
