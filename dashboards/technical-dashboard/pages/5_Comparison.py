@@ -14,6 +14,11 @@ df_tech = pd.read_csv(DATA_DIR / "empresas_tech.csv")
 df_budget = pd.read_csv(DATA_DIR / "budget_data.csv")
 
 # -----------------------------
+# PAGE TITLE
+# -----------------------------
+st.title("⚖️ Comparison of visualization techniques")
+
+# -----------------------------
 # DATA PREPARATION
 # -----------------------------
 df_population = df_population.rename(columns={
