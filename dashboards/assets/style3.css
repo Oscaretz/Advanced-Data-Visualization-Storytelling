@@ -1,0 +1,48 @@
+
+
+/* --- DATAGRAMES --- */
+/* DataFrames embebidos dentro del container */
+div[data-testid="stDataFrame"] {
+    border-radius: 8px;        /* Bordes suaves */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra leve para tablas */
+}
+/* --- DATAGRAMES --- */
+
+
+
+
+
+
+ /* --- GRAFICAS ---
+
+/* DataFrames embebidos dentro del container */
+/* div[data-testid="stPlotlyChart"] {
+    border-radius: 8px;        
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1); 
+} */
+ 
+
+div[data-testid="stPlotlyChart"] {
+    display: flex;                
+    justify-content: center;      
+    align-items: center;          
+    border-radius: 20px;
+    padding: 1rem; 
+    margin: 0 0rem 0rem -3rem;  /* margen: vertical superior/ inferior, horizontal izquierda/derecha */
+    background-color: #ffffff;
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease-in-out;
+    position: relative;           /* necesario para que z-index funcione */
+}
+
+/* Contenedor del medio por defecto delante */
+div[data-testid="stPlotlyChart"]:nth-child(2) {
+    z-index: 10; 
+}
+
+div[data-testid="stPlotlyChart"]:hover {
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
+    z-index: 999;                 /* se pone encima de los demás */
+}
