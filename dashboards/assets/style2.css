@@ -1,0 +1,49 @@
+/* Sidebar Styling */
+[data-testid="stSidebar"] {
+    background-color: #0E1117;
+    padding-top: 1rem;
+    width: 280px;
+    transition: all 0.3s ease-in-out;
+}
+
+[data-testid="stSidebar"] .css-1d391kg {
+    padding: 0;
+}
+
+section[data-testid="stSidebarNav"] {
+    background-color: #0E1117;
+}
+
+.st-emotion-cache-1v0mbdj {
+    color: #ffffff !important;
+}
+
+.sidebar-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+/* Main Page */
+.main {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+/* Buttons and Interactions */
+.stButton>button {
+    background-color: #2E8BFD;
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.stButton>button:hover {
+    background-color: #1b6ce2;
+}
+
+/* Headers */
+h1, h2, h3 {
+    color: #2E2E2E;
+}
