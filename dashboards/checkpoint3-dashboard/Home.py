@@ -94,10 +94,10 @@ def kpi_with_icon(icon_path, label, value, width=60):
 # -----------------------------
 # PAGE HEADER
 # -----------------------------
-st.title("Movies Dashboard - Checkpoint 3")
+st.title("Movie Analytics Dashboard")
+st.markdown("## - Insights for Marketing Professionals")
 st.markdown("""
-Welcome to the **Checkpoint 3 Movie Dashboard**, an interactive analytics suite to explore trends in popular and top-rated movies.  
-The KPIs below summarize the key metrics of the datasets.
+Explore key trends in popular and top-rated movies with interactive visualizations. Analyze metrics such as average popularity, vote ratings, and language distribution to uncover actionable insights. This dashboard is designed to provide a clear, data-driven view for professionals who rely on metrics to guide decisions.
 """)
 st.markdown("---")
 
