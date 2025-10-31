@@ -26,6 +26,7 @@ top_rated_movies_path = DATA_DIR / "top_rated_movies.csv"
 df_popular = pd.read_csv(popular_movies_path)
 df_top_rated = pd.read_csv(top_rated_movies_path)
 
+
 # =========================
 # LOAD CUSTOM STYLES
 # =========================
@@ -73,6 +74,23 @@ def prepare_movie_kpis(df):
 kpis_popular = prepare_movie_kpis(df_popular)
 kpis_top_rated = prepare_movie_kpis(df_top_rated)
 
+def kpi_with_icon(icon_path, label, value, width=60):
+    """Renderiza un KPI con ícono local sin romper compatibilidad en Streamlit."""
+    col_icon, col_text = st.columns([1, 3])
+    with col_icon:
+        st.image(str(icon_path), width=width)
+    with col_text:
+        st.markdown(
+            f"""
+            <div style='display: flex; flex-direction: column; justify-content: center;'>
+                <span style='font-size: 0.9rem; color: #555;'>{label}</span>
+                <span style='font-size: 1.5rem; font-weight: 700; color: #222;'>{value}</span>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+
 # -----------------------------
 # PAGE HEADER
 # -----------------------------
@@ -81,20 +99,30 @@ st.markdown("""
 Welcome to the **Checkpoint 3 Movie Dashboard**, an interactive analytics suite to explore trends in popular and top-rated movies.  
 The KPIs below summarize the key metrics of the datasets.
 """)
+st.markdown("---")
+
 
 # -----------------------------
 # KPIs: Popular Movies
 # -----------------------------
 st.markdown("### Popular Movies Overview")
+
+icon_dir = Path(__file__).parent.parent / "assets" / "icons"
+
 col1, col2, col3 = st.columns(3)
-col1.metric("Total Movies", kpis_popular['total_movies'])
-col2.metric("Average Popularity", f"{kpis_popular['avg_popularity']:.1f}")
-col3.metric("Average Vote", f"{kpis_popular['avg_vote']:.1f}")
+with col1:
+    kpi_with_icon(icon_dir / "movies.png", "Total Movies", kpis_popular['total_movies'])
+with col2:
+    kpi_with_icon(icon_dir / "polarity.png", "Average Popularity", f"{kpis_popular['avg_popularity']:.1f}")
+with col3:
+    kpi_with_icon(icon_dir / "vote.png", "Average Vote", f"{kpis_popular['avg_vote']:.1f}")
 
 col1, col2, col3 = st.columns([2, 2, 1])
 col1.metric("Most Popular Movie", kpis_popular['most_popular'])
 col2.metric("Highest Rated Movie", kpis_popular['highest_rated'])
 col3.metric("Movies for Adults", kpis_popular['adult_count'])
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 # -----------------------------
 # Popular Movies Charts
@@ -162,20 +190,41 @@ with cols[4]: #.container(border=True, height="stretch"):
     st.plotly_chart(fig_lang, use_container_width=True)
 
 
+st.markdown("---")
 
 # -----------------------------
 # KPIs: Top Rated Movies
 # -----------------------------
 st.markdown("### Top Rated Movies Overview")
+
 col1, col2, col3 = st.columns(3)
-col1.metric("Total Movies", kpis_top_rated['total_movies'])
-col2.metric("Average Popularity", f"{kpis_top_rated['avg_popularity']:.1f}")
-col3.metric("Average Vote", f"{kpis_top_rated['avg_vote']:.1f}")
+
+with col1:
+    kpi_with_icon(
+        icon_dir / "movies.png",
+        "Total Movies",
+        kpis_top_rated['total_movies']
+    )
+
+with col2:
+    kpi_with_icon(
+        icon_dir / "polarity.png",
+        "Average Popularity",
+        f"{kpis_top_rated['avg_popularity']:.1f}"
+    )
+
+with col3:
+    kpi_with_icon(
+        icon_dir / "vote.png",
+        "Average Vote",
+        f"{kpis_top_rated['avg_vote']:.1f}"
+    )
 
 col1, col2, col3 = st.columns([2, 2, 1])
 col1.metric("Most Popular Movie", kpis_top_rated['most_popular'])
 col2.metric("Highest Rated Movie", kpis_top_rated['highest_rated'])
 col3.metric("Movies for Adults", kpis_top_rated['adult_count'])
+st.markdown("<br>", unsafe_allow_html=True)
 
 # -----------------------------
 # Top Rated Movies Charts
